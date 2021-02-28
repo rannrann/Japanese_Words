@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+    .input_div{
+        border-bottom:1px solid black;
+        display:inline;
+        height:15px;
+        contenteditable:true;
+        color:#B0C4DE;
+    }
+    </style>
+    <script type="text/javascript">
+        function input_event(x){
+            if(x.innerHTML=="请输入日文例句")
+            {
+                x.innerHTML="";
+            }
+        }
+        function finish_input(x){
+            if(x.innerHTML==""){
+                x.innerHTML="请输入日文例句";
+            }
+        }
+    </script>
 </head>
 <body>
-
+<form id="words_form" method="POST">
+    单词：<input type="text" name="words"/><br/>
+    假名：<input type="text" name="kana" /><br/>
+    <table>
+        <tr>
+            <td>日文例句：<div contenteditable="true" type="text" name="jp_sentence" class="input_div"
+                          onclick="input_event(this)">请输入日文例句</div></td>
+        </tr>
+        <tr>
+            <td>中文例句：<div contenteditable="true" type="text" name="ch_sentence" class="input_div"></div></td>
+        </tr>
+    </table>
+    <button>新增例句</button>
+</form>
 </body>
 </html>
